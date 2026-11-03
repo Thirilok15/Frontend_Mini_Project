@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+
+        .box {
+            width: 450px;
+            margin: 50px auto;
+            padding: 25px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px #aaa;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 95%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .success {
+            color: green;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 25px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>Student Registration</h2>
+
+    <form id="studentForm">
+
+        <label>Student Name</label>
+        <input type="text" id="name">
+        <div id="nameError" class="error"></div>
+
+
+        <label>Email ID</label>
+        <input type="text" id="email">
+        <div id="emailError" class="error"></div>
+
+
+        <label>Gender</label>
+
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <input type="radio" name="gender" value="Other"> Other
+
+        <div id="genderError" class="error"></div>
+
+
+        <label>Skills</label>
+
+        <input type="checkbox" name="skill" value="HTML"> HTML
+        <input type="checkbox" name="skill" value="CSS"> CSS
+        <input type="checkbox" name="skill" value="JavaScript"> JavaScript
+
+        <div id="skillError" class="error"></div>
+
+
+        <button type="submit">Register</button>
+
+        <div id="output"></div>
+
+    </form>
+
+</div>
+
+
+<script>
+
+document.getElementById("studentForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+
+    let gender = document.querySelector('input[name="gender"]:checked');
+
+    let skills = document.querySelectorAll('input[name="skill"]:checked');
+
+    let valid = true;
+
+
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("genderError").innerHTML = "";
+    document.getElementById("skillError").innerHTML = "";
+    document.getElementById("output").innerHTML = "";
+
+
+    // Name validation
+    let namePattern = /^[A-Za-z ]+$/;
+
+    if (name == "") {
+        document.getElementById("nameError").innerHTML =
+            "Student Name is required.";
+        valid = false;
+    }
+    else if (!namePattern.test(name)) {
+        document.getElementById("nameError").innerHTML =
+            "Name should contain only alphabets and spaces.";
+        valid = false;
+    }
+
+
+    // Email validation
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (email == "") {
+        document.getElementById("emailError").innerHTML =
+            "Email ID is required.";
+        valid = false;
+    }
+    else if (!emailPattern.test(email)) {
+        document.getElementById("emailError").innerHTML =
+            "Enter a valid email address.";
+        valid = false;
+    }
+
+
+    // Gender validation
+    if (gender == null) {
+        document.getElementById("genderError").innerHTML =
+            "Please select a gender.";
+        valid = false;
+    }
+
+
+    // Skills validation
+    if (skills.length == 0) {
+        document.getElementById("skillError").innerHTML =
+            "Please select at least one skill.";
+        valid = false;
+    }
+
+
+    // Successful registration
+    if (valid) {
+        document.getElementById("output").innerHTML =
+            '<div class="success">Registration Successful</div>';
+    }
+
+});
+
+</script>
+
+</body>
+</html>

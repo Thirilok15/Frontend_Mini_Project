@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Registration</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .box {
+            width: 600px;
+            margin: auto;
+            padding: 25px;
+            background: white;
+            border: 2px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px #aaa;
+        }
+
+        h2, h3 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        label {
+            display: inline-block;
+            width: 160px;
+            font-weight: bold;
+        }
+
+        input, select {
+            padding: 7px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"],
+        input[type="tel"] {
+            width: 300px;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            width: 100px;
+            background: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="reset"] {
+            background: #e74c3c;
+        }
+
+        input[type="submit"]:hover {
+            background: #2980b9;
+        }
+
+        input[type="reset"]:hover {
+            background: #c0392b;
+        }
+
+        #result {
+            width: 600px;
+            margin: 30px auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 10px #ccc;
+        }
+
+        th {
+            background: #3498db;
+            color: white;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>Employee Registration</h2>
+
+    <h3>Welcome Video</h3>
+
+    <video width="400" controls>
+        <source src="video/welcome.mp4" type="video/mp4">
+        Your browser does not support video.
+    </video>
+
+    <br><br>
+
+    <form id="employeeForm">
+
+        <label>Full Name:</label>
+        <input type="text" id="name" placeholder="Enter full name">
+        <br><br>
+
+        <label>Employee ID:</label>
+        <input type="text" id="empid" placeholder="EMP001">
+        <br><br>
+
+        <label>Email Address:</label>
+        <input type="email" id="email" placeholder="Enter email">
+        <br><br>
+
+        <label>Password:</label>
+        <input type="password" id="password" placeholder="Enter password">
+        <br><br>
+
+        <label>Confirm Password:</label>
+        <input type="password" id="confirm" placeholder="Confirm password">
+        <br><br>
+
+        <label>Date of Birth:</label>
+        <input type="date" id="dob">
+        <br><br>
+
+        <label>Gender:</label>
+
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <input type="radio" name="gender" value="Other"> Other
+
+        <br><br>
+
+        <label>Department:</label>
+
+        <select id="department">
+            <option value="">Select Department</option>
+            <option>IT</option>
+            <option>HR</option>
+            <option>Finance</option>
+            <option>Marketing</option>
+        </select>
+
+        <br><br>
+
+        <label>Skills:</label>
+
+        <input type="checkbox" name="skill" value="HTML"> HTML
+        <input type="checkbox" name="skill" value="CSS"> CSS
+        <input type="checkbox" name="skill" value="Java"> Java
+        <input type="checkbox" name="skill" value="Python"> Python
+
+        <br><br>
+
+        <label>Mobile Number:</label>
+
+        <input type="tel"
+               id="mobile"
+               placeholder="10 digit number"
+               maxlength="10">
+
+        <br><br>
+
+        <label>Profile Photo:</label>
+        <input type="file" id="photo">
+
+        <div class="buttons">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </div>
+
+    </form>
+
+</div>
+
+<div id="result"></div>
+
+
+<script>
+
+document.getElementById("employeeForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let empid = document.getElementById("empid").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let confirm = document.getElementById("confirm").value;
+    let dob = document.getElementById("dob").value;
+    let department = document.getElementById("department").value;
+    let mobile = document.getElementById("mobile").value;
+    let photo = document.getElementById("photo").files[0];
+
+    let gender = document.querySelector('input[name="gender"]:checked');
+
+    let skills = document.querySelectorAll('input[name="skill"]:checked');
+
+    if (name == "" ||
+        empid == "" ||
+        email == "" ||
+        password == "" ||
+        confirm == "" ||
+        dob == "" ||
+        department == "" ||
+        mobile == "" ||
+        photo == null ||
+        gender == null ||
+        skills.length == 0) {
+
+        alert("Please fill all the fields.");
+        return;
+    }
+
+    if (password != confirm) {
+        alert("Passwords do not match.");
+        return;
+    }
+
+    let skillList = "";
+
+    skills.forEach(function(skill) {
+        skillList += skill.value + " ";
+    });
+
+    let output = `
+        <h2>Employee Details</h2>
+
+        <table>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+
+            <tr>
+                <td>Full Name</td>
+                <td>${name}</td>
+            </tr>
+
+            <tr>
+                <td>Employee ID</td>
+                <td>${empid}</td>
+            </tr>
+
+            <tr>
+                <td>Email Address</td>
+                <td>${email}</td>
+            </tr>
+
+            <tr>
+                <td>Password</td>
+                <td>${password}</td>
+            </tr>
+
+            <tr>
+                <td>Date of Birth</td>
+                <td>${dob}</td>
+            </tr>
+
+            <tr>
+                <td>Gender</td>
+                <td>${gender.value}</td>
+            </tr>
+
+            <tr>
+                <td>Department</td>
+                <td>${department}</td>
+            </tr>
+
+            <tr>
+                <td>Skills</td>
+                <td>${skillList}</td>
+            </tr>
+
+            <tr>
+                <td>Mobile Number</td>
+                <td>${mobile}</td>
+            </tr>
+
+            <tr>
+                <td>Profile Photo</td>
+                <td>${photo.name}</td>
+            </tr>
+        </table>
+    `;
+
+    document.getElementById("result").innerHTML = output;
+
+});
+
+</script>
+
+</body>
+</html>

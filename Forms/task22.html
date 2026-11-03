@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>National Technical Symposium</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .box {
+            width: 500px;
+            padding: 25px;
+            border: 2px solid black;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select, textarea {
+            margin-bottom: 15px;
+        }
+
+        h2, h3 {
+            text-align: center;
+        }
+
+        .media {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h2>National Technical Symposium</h2>
+        <h3>Registration Portal</h3>
+
+        <form>
+
+            <label for="name">Participant Name</label>
+            <input type="text" id="name" placeholder="Enter your name" minlength="3" maxlength="30" required>
+
+            <label for="reg">Register Number</label>
+            <input type="text" id="reg" placeholder="Enter register number" required>
+
+            <label for="college">College Name</label>
+            <input type="text" id="college" placeholder="Enter college name" minlength="3" maxlength="50" required>
+
+            <label for="email">Email ID</label>
+            <input type="email" id="email" placeholder="Enter email" required>
+
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" placeholder="10 digit mobile number" pattern="[0-9]{10}" maxlength="10" required>
+
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" required>
+
+            <label>Gender</label>
+            <input type="radio" name="gender" value="male" required> Male
+            <input type="radio" name="gender" value="female"> Female
+            <input type="radio" name="gender" value="other"> Other
+
+            <br><br>
+
+            <label for="dept">Department</label>
+            <select id="dept" required>
+                <option value="">Select Department</option>
+                <option>CSE</option>
+                <option>ECE</option>
+                <option>EEE</option>
+                <option>Mechanical</option>
+                <option>Civil</option>
+            </select>
+
+            <label>Technical Skills</label>
+            <input type="checkbox"> HTML
+            <input type="checkbox"> Java
+            <input type="checkbox"> Python
+            <input type="checkbox"> C++
+
+            <br><br>
+
+            <label for="idcard">Upload Student ID Card</label>
+            <input type="file" id="idcard" accept=".jpg,.jpeg,.png,.pdf" required>
+
+            <label for="event">Event Date</label>
+            <input type="date" id="event" required>
+
+            <div class="media">
+
+                <h3>Symposium Promotional Video</h3>
+
+                <video width="400" controls>
+                    <source src="video/welcome.mp4" type="video/mp4">
+                    Your browser does not support video.
+                </video>
+
+                <h3>Welcome Message</h3>
+
+                <audio controls>
+                    <source src="audio/introduction-audio.mp3" type="audio/mpeg">
+                    Your browser does not support audio.
+                </audio>
+
+                <br><br>
+
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

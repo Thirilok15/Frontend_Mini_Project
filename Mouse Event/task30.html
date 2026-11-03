@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Card</title>
+    <meta charset = "utf-8">
+    <style>
+        .card {
+            justify-content: center;
+            margin: 50px auto 20px;
+            width: 250px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid black;
+        }
+        #productImage {
+            width: 200px;
+            height: 150px;
+        }
+        #info {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img id="productImage" src="images/images.jpg">
+        <h2>Smart Watch</h2>
+
+        <p id="info">Waterproof, Bluetooth, Fitness Tracking</p>
+
+        <button id="details">View Details</button>
+
+        <p id="detailsInfo"></p>
+    </div>
+    <script>
+        let image = document.getElementById("productImage");
+        let info = document.getElementById("info");
+        let button = document.getElementById("details");
+        let detailsInfo = document.getElementById("detailsInfo");
+        image.addEventListener("mouseover", function() {
+            image.style.opacity = "0.5";
+            info.style.display = "block";
+        });
+        image.addEventListener("mouseout", function() {
+            image.style.opacity = "1";
+            info.style.display = "none";
+        });
+        button.addEventListener("click", function() {
+            detailsInfo.textContent = "Price: ₹2999 | Availability: In Stock";
+        });
+    </script>
+
+</body>
+</html>

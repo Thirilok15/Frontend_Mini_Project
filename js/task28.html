@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Course Registration</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+
+        .box {
+            width: 450px;
+            margin: 50px auto;
+            padding: 25px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px #aaa;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 95%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        select[multiple] {
+            height: 120px;
+        }
+
+        .error {
+            color: red;
+            margin-top: 5px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 25px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f5e9;
+            border: 1px solid green;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>Course Registration</h2>
+
+    <form id="courseForm">
+
+        <label>Student Name</label>
+        <input type="text" id="name" placeholder="Enter student name">
+
+        <div id="nameError" class="error"></div>
+
+
+        <label>Department</label>
+
+        <select id="department">
+            <option value="">Select Department</option>
+            <option>CSE</option>
+            <option>IT</option>
+            <option>ECE</option>
+            <option>EEE</option>
+        </select>
+
+
+        <label>Programming Languages</label>
+
+        <select id="languages" multiple>
+            <option>Java</option>
+            <option>Python</option>
+            <option>JavaScript</option>
+            <option>C++</option>
+        </select>
+
+
+        <button type="submit">Register</button>
+
+    </form>
+
+    <div id="output"></div>
+
+</div>
+
+
+<script>
+
+document.getElementById("courseForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let department = document.getElementById("department").value;
+
+    let languages = document.getElementById("languages");
+    let selectedLanguages = [];
+
+    for (let i = 0; i < languages.options.length; i++) {
+        if (languages.options[i].selected) {
+            selectedLanguages.push(languages.options[i].value);
+        }
+    }
+
+
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("output").innerHTML = "";
+
+
+    // Regular expression for alphabets and spaces
+    let namePattern = /^[A-Za-z ]+$/;
+
+
+    if (name == "") {
+
+        document.getElementById("nameError").innerHTML =
+            "Student Name is required.";
+
+        return;
+    }
+
+
+    if (!namePattern.test(name)) {
+
+        document.getElementById("nameError").innerHTML =
+            "Name should contain only alphabets and spaces.";
+
+        return;
+    }
+
+
+    if (department == "") {
+
+        alert("Please select a department.");
+        return;
+    }
+
+
+    if (selectedLanguages.length == 0) {
+
+        alert("Please select at least one programming language.");
+        return;
+    }
+
+
+    document.getElementById("output").innerHTML =
+        "<h3>Registration Details</h3>" +
+        "<p><b>Student Name:</b> " + name + "</p>" +
+        "<p><b>Department:</b> " + department + "</p>" +
+        "<p><b>Programming Languages:</b> " +
+        selectedLanguages.join(", ") + "</p>";
+
+});
+
+</script>
+
+</body>
+</html>

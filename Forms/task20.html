@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+       <title>Employee Registration</title>     
+       <style>
+              body{
+                     font-family: Arial;
+                     background-color: #f2f2f2;
+               }
+              .box{
+                     width: 500px;
+                     margin: 30px auto;
+                     padding: 25px;
+                     border: 2px solid black;
+                     background-color: white;
+              }
+
+              h2,h3{
+                     text-align: center;
+               }
+
+              input,select{
+                     padding: 6px;
+              }
+
+              label{
+                     display: inline-block;
+                     width: 150px;
+               }
+
+              .buttons{
+                     text-align: center;
+              }
+       </style>
+</head>
+<body>
+      <div class="box">
+              <h2>Employee Registration</h2>
+
+              <h3>Welcome Video</h3>
+
+              <video width="400" controls>
+                            <source src="video/welcome.mp4" type="video/mp4">
+                                   Your browser does not support video.
+              </video>
+
+              <br><br>
+
+              <form>
+                     <label>Full Name:</label>
+                     <input type="text" placeholder="Enter full name" required maxlength="50"><br><br>
+
+                     <label>Employee ID:</label>
+                     <input type="text" placeholder="EMP001" required pattern="[A-Za-z0-9]{3,10}"><br><br>
+
+                     <label>Email Address:</label>
+                     <input type="email" placeholder="Enter email" required><br><br>
+                     
+                     <label>Password:</label>
+                     <input type="password" placeholder="Enter password" required minlength="6"><br><br>
+
+                     <label>Confirm Password:</label>
+                     <input type="password" placeholder="Confirm password" required minlength="6"><br><br>
+
+                     <label>Date of Birth:</label>
+                     <input type="date" required><br><br>
+
+                     <label>Gender:</label>
+                     <input type="radio" name="gender" required>
+                     Male<input type="radio" name="gender">
+                     Female<input type="radio" name="gender"><br><br>
+
+                     <label>Department:</label>
+                     <select required>
+                            <option value="">Select Department</option>
+                            <option>IT</option>
+                            <option>HR</option>
+                            <option>Finance</option>
+                            <option>Marketing</option>
+                     </select>
+                     <br><br>
+
+                     <label>Skills:</label>
+                     <input type="checkbox">HTML
+                     <input type="checkbox">CSS
+                     <input type="checkbox">Java
+                     <input type="checkbox">Python
+                     <br><br>
+
+                     <label>Mobile Number:</label>
+                     <input type="tel" placeholder="10 digit number" pattern="[0-9]{10}" maxlength="10" required><br><br>
+
+                     <label>Profile Photo:</label>
+                     <input type="file" accept="image/*" required>
+
+                     <br><br>
+
+                     <div class="buttons">
+                            <input type="submit" value="Submit">
+                            <input type="reset" value="Reset">
+                     </div>
+
+              </form>
+       </div>
+</body>
+</html>

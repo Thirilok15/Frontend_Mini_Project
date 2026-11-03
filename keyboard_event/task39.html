@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Photo Gallery</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #eaf6ff;
+            margin-top: 80px;
+        }
+        .gallery {
+            background-color: white;
+            width: 600px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px gray;
+        }
+        h2 {
+            color: #1e40af;
+        }
+        #travelImage {
+            width: 500px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid #2563eb;
+        }
+        #destination {
+            font-size: 20px;
+            font-weight: bold;
+            color: #16a34a;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gallery">
+        <h2>Travel Photo Gallery</h2>
+        <img id="travelImage" src="img/paris.jpg" alt="Travel Destination">
+        <p id="destination"></p>
+    </div>
+    <script>
+        const travelImage = document.getElementById("travelImage");
+        const destination = document.getElementById("destination");
+        const images = [
+            "img/paris.jpg",
+            "img/tokyo.jpg",
+            "img/newyork.jpg"
+        ];
+        const names = [
+            "Paris",
+            "Tokyo",
+            "New York"
+        ];
+        let current = 0;
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "n" || event.key === "N") {
+                current++;
+                if (current >= images.length) {
+                    current = 0;
+                }
+                travelImage.src = images[current];
+                destination.textContent = "";
+            }
+            else if (event.key === "p" || event.key === "P") {
+                current--;
+                if (current < 0) {
+                    current = images.length - 1;
+                }
+                travelImage.src = images[current];
+                destination.textContent = "";
+            }
+            else if (event.code === "Space") {
+                event.preventDefault();
+                destination.textContent = names[current];
+            }
+
+        });
+    </script>
+
+</body>
+</html>

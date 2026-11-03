@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .box {
+            background-color: white;
+            width: 400px;
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+        .role,
+        .remember {
+            margin-bottom: 15px;
+        }
+        .role label,
+        .remember label {
+            display: inline;
+            font-weight: normal;
+        }
+        .links {
+            text-align: center;
+            margin: 15px 0;
+        }
+        .links a {
+            text-decoration: none;
+            color: blue;
+            margin: 0 10px;
+        }
+        .audio {
+            margin: 20px 0;
+        }
+        .buttons {
+            text-align: center;
+        }
+        button {
+            padding: 10px 25px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login {
+            background-color: #007bff;
+            color: white;
+        }
+        .clear {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h2>Login</h2>
+
+        <form>
+
+            <label for="username">Username or Email Address</label>
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter username or email"
+                required
+                minlength="3"
+            >
+
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter password"
+                required
+                minlength="6"
+            >
+
+            <div class="remember">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">Remember Me</label>
+            </div>
+
+            <div class="role">
+                <label>User Role:</label>
+
+                <input
+                    type="radio"
+                    id="student"
+                    name="role"
+                    value="student"
+                    required
+                >
+                <label for="student">Student</label>
+
+                <input
+                    type="radio"
+                    id="faculty"
+                    name="role"
+                    value="faculty"
+                >
+                <label for="faculty">Faculty</label>
+            </div>
+
+            <div class="links">
+                <a href="#">Forgot Password?</a>
+                <a href="#">Create New Account</a>
+            </div>
+
+            <div class="buttons">
+                <button type="submit" class="login">Login</button>
+                <button type="reset" class="clear">Clear</button>
+            </div>
+
+            <div class="audio">
+                <p><strong>Login Instructions</strong></p>
+
+                <audio controls>
+                    <source src="audio/introduction-audio.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

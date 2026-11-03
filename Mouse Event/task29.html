@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse Event Handling</title>
+
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            margin: 50px auto 20px;
+        }
+
+        #message {
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box"></div>
+    <p id="message"></p>
+
+    <script>
+        let box = document.getElementById("box");
+        let message = document.getElementById("message");
+        var count = 1;
+        box.addEventListener("click", function() {
+            count++;
+            if(count%2!=0){box.style.backgroundColor = "red";}
+            else{box.style.backgroundColor = "blue";}
+        });
+        box.addEventListener("mouseover", function() {
+            message.textContent = "Mouse is over the box";
+        });
+        box.addEventListener("mouseout", function() {
+            message.textContent = "Mouse is out of the box";
+        });
+    </script>
+
+</body>
+</html>
+

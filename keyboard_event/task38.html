@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Campus Image Viewer</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f2f7ff;
+            margin-top: 70px;
+        }
+        .container {
+            background-color: white;
+            width: 600px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px gray;
+        }
+        h2 {
+            color: #1e3a8a;
+        }
+        #campusImage {
+            width: 500px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid #2563eb;
+        }
+        #message {
+            color: #16a34a;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Campus Image Viewer</h2>
+        <img id="campusImage" src="img/campus1.jpg" alt="Campus Image">
+        <p id="message"></p>
+    </div>
+    <script>
+        const campusImage = document.getElementById("campusImage");
+        const message = document.getElementById("message");
+        const images = [
+            "img/campus1.jpg",
+            "img/campus2.jpg",
+            "img/campus3.jpg"
+        ];
+        let currentImage = 0;
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "ArrowRight") {
+                currentImage++;
+                if (currentImage >= images.length) {
+                    currentImage = 0;
+                }
+                campusImage.src = images[currentImage];
+                message.textContent = "";
+            }
+            else if (event.key === "ArrowLeft") {
+                currentImage--;
+
+                if (currentImage < 0) {
+                    currentImage = images.length - 1;
+                }
+
+                campusImage.src = images[currentImage];
+                message.textContent = "";
+            }
+            else if (event.key === "Enter") {
+                message.textContent = "Image Selected";
+            }
+        });
+    </script>
+
+</body>
+</html>

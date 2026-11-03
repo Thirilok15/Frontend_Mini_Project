@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Details</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f6fa;
+            margin: 0;
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        form {
+            width: 550px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px #ccc;
+        }
+
+        input, select, textarea {
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="date"] {
+            width: 95%;
+        }
+
+        textarea {
+            width: 95%;
+            height: 70px;
+        }
+
+        a {
+            text-decoration: none;
+            background: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Customer & Delivery Details</h2>
+
+<form>
+
+    Customer Name:
+    <input type="text" name="name"><br><br>
+
+    Email Address:
+    <input type="email" name="email"><br><br>
+
+    Mobile Number:
+    <input type="tel" name="mobile"><br><br>
+
+    Delivery Address:<br>
+    <textarea name="address"></textarea><br><br>
+
+    City:
+    <input type="text" name="city"><br><br>
+
+    State:
+    <select name="state">
+        <option>Tamil Nadu</option>
+        <option>Kerala</option>
+        <option>Karnataka</option>
+        <option>Andhra Pradesh</option>
+    </select><br><br>
+
+    PIN Code:
+    <input type="number" name="pin"><br><br>
+
+    Delivery Date:
+    <input type="date" name="date"><br><br>
+
+    <a href="payment.html">Next to Payment Details</a>
+
+</form>
+
+</body>
+</html>

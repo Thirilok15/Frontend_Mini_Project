@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Status</title>
+    <style>
+        .weather {
+            width: 150px;
+            padding: 30px;
+            margin: 10px;
+            display: inline-block;
+            text-align: center;
+            border: 2px solid black;
+            font-size: 20px;
+        }
+        #sunny {
+            background-color: yellow;
+        }
+        #cloudy {
+            background-color: lightgray;
+        }
+        #rainy {
+            background-color: lightblue;
+        }
+        #message {
+            font-size: 22px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="sunny" class="weather"><br>Sunny</div>
+    <div id="cloudy" class="weather"><br>Cloudy</div>
+    <div id="rainy" class="weather"><br>Rainy</div>
+    <p id="message"></p>
+    <script>
+        let sunny = document.getElementById("sunny");
+        let cloudy = document.getElementById("cloudy");
+        let rainy = document.getElementById("rainy");
+        let message = document.getElementById("message");
+        sunny.addEventListener("mouseover", function() {
+            sunny.style.transform = "scale(1.1)";
+            message.textContent = "Perfect Day!";
+        });
+        sunny.addEventListener("mouseout", function() {
+            sunny.style.transform = "scale(1)";
+            message.textContent = "";
+        });
+        cloudy.addEventListener("mouseover", function() {
+            cloudy.style.transform = "scale(1.1)";
+            message.textContent = "Cloudy Weather";
+        });
+        cloudy.addEventListener("mouseout", function() {
+            cloudy.style.transform = "scale(1)";
+            message.textContent = "";
+        });
+        rainy.addEventListener("mouseover", function() {
+            rainy.style.transform = "scale(1.1)";
+            message.textContent = "Carry an Umbrella!";
+        });
+        rainy.addEventListener("mouseout", function() {
+            rainy.style.transform = "scale(1)";
+            message.textContent = "";
+        });
+    </script>
+</body>
+</html>

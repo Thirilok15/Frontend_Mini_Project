@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Exam</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f7ff;
+            text-align: center;
+            margin-top: 80px;
+        }
+        .exam-box {
+            background-color: white;
+            width: 500px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px gray;
+        }
+        h2 {
+            color: #1e3a8a;
+        }
+        .option {
+            background-color: #e5e7eb;
+            margin: 10px;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .option:hover {
+            background-color: #dbeafe;
+        }
+        .selected {
+            background-color: #60a5fa;
+            color: black;
+        }
+        #submit {
+            margin-top: 20px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            background-color: #2563eb;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #16a34a;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="exam-box">
+        <h2>Online Exam</h2>
+        <p><b>What is the capital of India?</b></p>
+        <div class="option">Mumbai</div>
+        <div class="option">New Delhi</div>
+        <div class="option">Chennai</div>
+        <div class="option">Kolkata</div>
+        <button id="submit">Submit</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        const options = document.querySelectorAll(".option");
+        const submit = document.getElementById("submit");
+        const result = document.getElementById("result");
+        let selectedOption = null;
+        options.forEach(function(option) {
+            option.addEventListener("click", function() {
+
+                options.forEach(function(item) {
+                    item.classList.remove("selected");
+                });
+
+                option.classList.add("selected");
+                selectedOption = option;
+            });
+        });
+        function submitAnswer() {
+            if (selectedOption !== null) {
+                result.textContent = "Answer Submitted Successfully";
+            } else {
+                result.textContent = "Please select an answer";
+                result.style.color = "red";
+            }
+        }
+        submit.addEventListener("click", submitAnswer);
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                submitAnswer();
+            }
+        });
+        submit.addEventListener("mouseover", function() {
+            submit.style.backgroundColor = "#16a34a";
+        });
+        submit.addEventListener("mouseout", function() {
+            submit.style.backgroundColor = "#2563eb";
+        });
+    </script>
+
+</body>
+</html>

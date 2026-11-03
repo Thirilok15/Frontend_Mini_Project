@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse Event</title>
+</head>
+<body>
+    <p id="text">Welcome!</p>
+    <button id="btn">Move Mouse Here</button>
+    <script>
+        let btn = document.getElementById("btn");
+        let text = document.getElementById("text");
+
+        btn.addEventListener("mouseover", function() {
+            text.textContent = "Welcome to VIT!";
+        });
+
+        btn.addEventListener("mouseout", function() {
+            text.textContent = "Welcome";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ATM PIN Entry</title>
+    <style>
+        body {
+            background-color: #e8f1ff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 150px;
+        }
+        .atm-box {
+            background-color: white;
+            width: 350px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px gray;
+        }
+        h2 {
+            color: #1e3a8a;
+        }
+        #pin {
+            width: 280px;
+            padding: 12px;
+            font-size: 18px;
+            text-align: center;
+            border: 2px solid #2563eb;
+            border-radius: 8px;
+            outline: none;
+        }
+        #pin:focus {
+            border-color: #16a34a;
+        }
+        #message {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="atm-box">
+        <h2>ATM PIN Entry</h2>
+        <input type="password" id="pin" placeholder="Enter PIN" maxlength="4">
+        <p id="message"></p>
+    </div>
+    <script>
+        const pin = document.getElementById("pin");
+        const message = document.getElementById("message");
+        pin.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                message.textContent = "PIN Submitted Successfully";
+            }
+            else if (event.key >= "0" && event.key <= "9") {
+                message.textContent = "PIN Entry Started";
+            }
+            else if (event.key === "Backspace") {
+                message.textContent = "PIN Entry Started";
+            }
+            else {
+                event.preventDefault();
+                message.textContent = "Warning: Only numeric keys are allowed! "+event.key+" is not a numeric value";
+            }
+        });
+    </script>
+</body>
+</html>

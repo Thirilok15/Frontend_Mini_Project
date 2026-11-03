@@ -1,0 +1,71 @@
+<html>
+<head>
+    <title>Traffic Signal</title>
+    <style>
+        body{
+            border : 2px solid black;
+        }
+        .signal {
+            width: 100px;
+            height: 100px;
+            padding: 15px;
+            margin: 5px;
+            border-radius: 50%;
+            text-align: center;
+            margin: 50px auto 20px;
+            border : 2px solid black;
+        }
+        #red {
+            background-color: red;
+        }
+        #yellow {
+            background-color: yellow;
+        }
+        #green {
+            background-color: green;
+        }
+        #message {
+            font-size: 25px;
+            font-weight: bold;
+            margin: 50px auto 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="red" class="signal"></div>
+    <div id="yellow" class="signal"></div>
+    <div id="green" class="signal"></div>
+    <p id="message"></p>
+    <script>
+        let red = document.getElementById("red");
+        let yellow = document.getElementById("yellow");
+        let green = document.getElementById("green");
+        let message = document.getElementById("message");
+        red.addEventListener("mouseover", function() {
+            red.style.opacity = "1";
+            message.textContent = "STOP";
+        });
+        red.addEventListener("mouseout", function() {
+            red.style.opacity = "0.5";
+            message.textContent = "";
+        });
+        yellow.addEventListener("mouseover", function() {
+            yellow.style.opacity = "1";
+            message.textContent = "READY";
+        });
+        yellow.addEventListener("mouseout", function() {
+            yellow.style.opacity = "0.5";
+            message.textContent = "";
+        });
+        green.addEventListener("mouseover", function() {
+            green.style.opacity = "1";
+            message.textContent = "GO";
+        });
+        green.addEventListener("mouseout", function() {
+            green.style.opacity = "0.5";
+            message.textContent = "";
+        });
+    </script>
+</body>
+</html>

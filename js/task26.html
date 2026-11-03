@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .box {
+            background-color: white;
+            width: 400px;
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #bbb;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 5px;
+            box-sizing: border-box;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .role,
+        .remember {
+            margin-bottom: 15px;
+        }
+
+        .role label,
+        .remember label {
+            display: inline;
+            font-weight: normal;
+        }
+
+        .links {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: blue;
+            margin: 0 10px;
+        }
+
+        .audio {
+            margin: 20px 0;
+        }
+
+        .buttons {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 25px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .clear {
+            background-color: #ccc;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f5e9;
+            border: 1px solid #4caf50;
+            border-radius: 5px;
+            text-align: center;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>Student Login</h2>
+
+    <form id="loginForm">
+
+        <label for="username">Username or Email Address</label>
+
+        <input type="text"
+               id="username"
+               name="username"
+               placeholder="Enter username or email">
+
+        <span id="usernameError" class="error"></span>
+
+
+        <label for="password">Password</label>
+
+        <input type="password"
+               id="password"
+               name="password"
+               placeholder="Enter password">
+
+        <span id="passwordError" class="error"></span>
+
+
+        <div class="remember">
+            <input type="checkbox" id="remember">
+            <label for="remember">Remember Me</label>
+        </div>
+
+
+        <div class="role">
+
+            <label>User Role:</label>
+
+            <input type="radio"
+                   id="student"
+                   name="role"
+                   value="Student">
+
+            <label for="student">Student</label>
+
+            <input type="radio"
+                   id="faculty"
+                   name="role"
+                   value="Faculty">
+
+            <label for="faculty">Faculty</label>
+
+            <span id="roleError" class="error"></span>
+
+        </div>
+
+
+        <div class="links">
+            <a href="#">Forgot Password?</a>
+            <a href="#">Create New Account</a>
+        </div>
+
+
+        <div class="buttons">
+
+            <button type="submit" class="login">
+                Login
+            </button>
+
+            <button type="reset" class="clear">
+                Clear
+            </button>
+
+        </div>
+
+
+        <div class="audio">
+
+            <p><strong>Login Instructions</strong></p>
+
+            <audio controls>
+                <source src="audio/introduction-audio.mp3"
+                        type="audio/mpeg">
+
+                Your browser does not support the audio element.
+            </audio>
+
+        </div>
+
+    </form>
+
+
+    <div id="output"></div>
+
+</div>
+
+
+<script>
+
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+
+    let role = document.querySelector('input[name="role"]:checked');
+
+    let valid = true;
+
+
+    document.getElementById("usernameError").innerHTML = "";
+    document.getElementById("passwordError").innerHTML = "";
+    document.getElementById("roleError").innerHTML = "";
+    document.getElementById("output").innerHTML = "";
+
+
+    if (username == "") {
+        document.getElementById("usernameError").innerHTML =
+            "Username or Email is required";
+
+        valid = false;
+    }
+
+
+    if (password == "") {
+        document.getElementById("passwordError").innerHTML =
+            "Password is required";
+
+        valid = false;
+    }
+
+
+    if (role == null) {
+        document.getElementById("roleError").innerHTML =
+            "Please select a role";
+
+        valid = false;
+    }
+
+
+    if (valid) {
+
+        document.getElementById("output").innerHTML =
+            "<h3>Login Successful</h3>" +
+            "<p>Username: " + username + "</p>" +
+            "<p>Role: " + role.value + "</p>";
+
+    }
+
+});
+
+
+document.getElementById("loginForm").addEventListener("reset", function() {
+
+    document.getElementById("usernameError").innerHTML = "";
+    document.getElementById("passwordError").innerHTML = "";
+    document.getElementById("roleError").innerHTML = "";
+    document.getElementById("output").innerHTML = "";
+
+});
+
+</script>
+
+</body>
+</html>

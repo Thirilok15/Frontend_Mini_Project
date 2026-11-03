@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+}
+
+.header {
+    text-align: center;
+    padding: 25px;
+    background-color: #ffffff;
+}
+
+.header h1 {
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.header p {
+    font-size: 18px;
+    margin: 0;
+    color: #555;
+}
+
+.auth-section {
+    padding: 50px 15px;
+    min-height: 600px;
+}
+
+.auth-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+.auth-box h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.auth-box p {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.form-control {
+    padding: 10px;
+}
+
+.btn {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #212529;
+    color: white;
+}
+
+.footer p {
+    margin: 0;
+}

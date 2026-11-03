@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Details</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f6fa;
+            margin: 0;
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        form {
+            width: 550px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px #ccc;
+        }
+
+        input {
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        input[type="text"],
+        input[type="month"],
+        input[type="password"] {
+            width: 95%;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin: 8px;
+        }
+
+        a {
+            text-decoration: none;
+            background: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Payment Details</h2>
+
+<form>
+
+    Payment Method:<br>
+
+    <input type="radio" name="payment"> Credit Card
+    <input type="radio" name="payment"> Debit Card
+    <input type="radio" name="payment"> UPI
+    <input type="radio" name="payment"> Net Banking
+    <input type="radio" name="payment"> Cash on Delivery
+
+    <br><br>
+
+    Card Holder Name:
+    <input type="text" name="holder"><br><br>
+
+    Card Number:
+    <input type="text" name="card"
+           placeholder="1234 5678 9012 3456"><br><br>
+
+    Expiry Date:
+    <input type="month" name="expiry"><br><br>
+
+    CVV:
+    <input type="password" name="cvv"><br><br>
+
+    UPI ID:
+    <input type="text" name="upi"
+           placeholder="example@upi"><br><br>
+
+    <input type="checkbox" name="terms">
+    I agree to the Terms and Conditions
+
+    <br><br>
+
+    <a href="customer.html">Back</a>
+    &nbsp;&nbsp;
+    <a href="cart.html">Next to Cart Summary</a>
+
+</form>
+
+</body>
+</html>

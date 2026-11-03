@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#11131b">
+    <title>Frontend Quest — Exercise Showcase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#quest-board">Skip to quests</a>
+
+    <header class="hud" id="top">
+        <a class="hud-brand" href="#top" aria-label="Frontend Quest home">
+            <span class="brand-mark" aria-hidden="true">FQ</span>
+            <span>FRONTEND <b>QUEST</b></span>
+        </a>
+        <div class="hud-stats" aria-label="Quest progress">
+            <div class="hud-count"><span class="hud-label">QUESTS</span><strong><span id="completed-count">0</span><span class="count-divider">/</span><span id="total-count">41</span></strong></div>
+            <div class="hud-xp">
+                <div class="hud-xp-label"><span class="hud-label">XP PROGRESS</span><span id="xp-label">0 / 4100 XP</span></div>
+                <div class="progress-track" role="progressbar" aria-label="Experience points" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="hud-progress">
+                    <span class="progress-fill" id="hud-progress-fill"></span>
+                </div>
+            </div>
+            <div class="hud-level"><span class="hud-label">LEVEL</span><strong id="hud-level">1</strong></div>
+        </div>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme">
+            <span id="theme-icon" aria-hidden="true">☀</span>
+            <span class="theme-toggle-label">Theme</span>
+        </button>
+    </header>
+
+    <main>
+        <section class="hero page-shell" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow"><span class="eyebrow-dot"></span> YOUR FRONTEND ADVENTURE STARTS HERE</p>
+                <h1 id="hero-title">Frontend<br><span>Quest</span><i class="title-cursor" aria-hidden="true">_</i></h1>
+                <p class="hero-description">41 hands-on quests. Nine worlds to explore. One level-up at a time.</p>
+                <div class="hero-actions">
+                    <button class="primary-button" id="press-start" type="button"><span aria-hidden="true">▶</span> Press Start</button>
+                    <a class="text-link" href="#badge-shelf">View achievements <span aria-hidden="true">↓</span></a>
+                </div>
+                <div class="hero-meta"><span>HTML</span><span>CSS</span><span>JAVASCRIPT</span><span>BOOTSTRAP</span></div>
+            </div>
+            <aside class="player-card" aria-label="Player profile">
+                <div class="player-card-top"><span class="pixel-kicker">PLAYER CARD</span><span class="online-dot"><i></i> READY</span></div>
+                <div class="player-avatar" aria-hidden="true"><span>?</span><i></i></div>
+                <p class="player-name">YOUR NAME</p>
+                <p class="player-subtitle">Frontend explorer</p>
+                <div class="player-level-row"><span>LEVEL <b id="player-level">1</b></span><span id="player-xp">0 XP</span></div>
+                <div class="progress-track player-progress" role="progressbar" aria-label="Player experience points" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="player-progress">
+                    <span class="progress-fill" id="player-progress-fill"></span>
+                </div>
+                <p class="player-hint">Every great developer starts with a first quest.</p>
+            </aside>
+            <div class="hero-orbit orbit-one" aria-hidden="true"></div>
+            <div class="hero-orbit orbit-two" aria-hidden="true"></div>
+        </section>
+
+        <section class="badge-section page-shell" id="badge-shelf" aria-labelledby="badge-heading">
+            <div class="section-heading compact-heading">
+                <div>
+                    <p class="eyebrow">YOUR TROPHY CASE</p>
+                    <h2 id="badge-heading">Achievement shelf</h2>
+                </div>
+                <p class="section-note">Complete a world to light up its badge.</p>
+            </div>
+            <div class="badge-shelf" id="badge-shelf-list" aria-live="polite"></div>
+        </section>
+
+        <section class="quest-section page-shell" id="quest-board" aria-labelledby="quest-heading">
+            <div class="section-heading quest-heading">
+                <div>
+                    <p class="eyebrow">THE WORLD MAP</p>
+                    <h2 id="quest-heading">Choose your next quest<span class="heading-period">.</span></h2>
+                    <p class="section-note">Explore the levels, pick a challenge, and keep building.</p>
+                </div>
+                <div class="world-count"><strong>09</strong><span>WORLDS<br>AVAILABLE</span></div>
+            </div>
+
+            <div class="quest-controls" aria-label="Quest filters">
+                <div class="filter-list" id="filter-list" role="group" aria-label="Filter quests by technology">
+                    <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">All quests</button>
+                    <button class="filter-chip" type="button" data-filter="HTML" aria-pressed="false">HTML</button>
+                    <button class="filter-chip" type="button" data-filter="CSS" aria-pressed="false">CSS</button>
+                    <button class="filter-chip" type="button" data-filter="JavaScript" aria-pressed="false">JavaScript</button>
+                    <button class="filter-chip" type="button" data-filter="Bootstrap" aria-pressed="false">Bootstrap</button>
+                </div>
+                <label class="search-control">
+                    <span class="visually-hidden">Search quests by title or number</span>
+                    <span aria-hidden="true">⌕</span>
+                    <input id="quest-search" type="search" placeholder="Search quests…" autocomplete="off">
+                    <kbd>/</kbd>
+                </label>
+            </div>
+
+            <p class="results-summary" id="results-summary" aria-live="polite"></p>
+            <div class="world-list" id="world-list"></div>
+            <p class="empty-state" id="empty-state" hidden>No quests match that search. Try another title or filter.</p>
+        </section>
+
+        <section class="closing-banner page-shell" aria-label="Keep coding">
+            <div class="closing-mark" aria-hidden="true">+</div>
+            <div><p class="eyebrow">THE NEXT LEVEL IS YOURS</p><h2>Small steps. Big builds.</h2></div>
+            <a class="text-link" href="#top">Back to top <span aria-hidden="true">↑</span></a>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <a class="hud-brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true">FQ</span><span>FRONTEND <b>QUEST</b></span></a>
+        <p>Game Over? Never. Keep Coding.</p>
+        <p class="footer-meta">YOUR NAME <span>·</span> COURSE NAME</p>
+    </footer>
+
+    <dialog class="quest-modal" id="quest-modal" aria-labelledby="modal-title">
+        <div class="modal-shell">
+            <header class="modal-header">
+                <div class="modal-quest-title">
+                    <p class="pixel-kicker" id="modal-kicker">QUEST 01</p>
+                    <h2 id="modal-title">Quest title</h2>
+                </div>
+                <div class="modal-header-actions">
+                    <a class="open-tab-link" id="open-in-new-tab" href="#" target="_blank" rel="noopener noreferrer">Open in new tab <span aria-hidden="true">↗</span></a>
+                    <button class="icon-button" id="close-modal" type="button" aria-label="Close quest preview">×</button>
+                </div>
+            </header>
+            <div class="modal-frame-wrap">
+                <iframe id="quest-frame" title="Exercise preview" loading="eager"></iframe>
+                <p class="frame-fallback" id="frame-fallback" role="status" hidden>
+                    This quest could not be previewed here. We tried opening it in a new tab; if that was blocked, use
+                    <a id="fallback-link" href="#" target="_blank" rel="noopener noreferrer">Open in new tab</a>.
+                </p>
+            </div>
+            <footer class="modal-footer">
+                <button class="secondary-button" id="previous-quest" type="button"><span aria-hidden="true">←</span> Previous quest</button>
+                <span class="modal-position" id="modal-position">01 / 41</span>
+                <button class="secondary-button" id="next-quest" type="button">Next quest <span aria-hidden="true">→</span></button>
+            </footer>
+        </div>
+    </dialog>
+
+    <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Registration Form</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 30px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            margin-bottom: 7px;
+            font-weight: bold;
+            color: #34495e;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #bbb;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.4);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 8px 0;
+        }
+
+        .radio-group label,
+        .checkbox-group label {
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .radio-group input,
+        .checkbox-group input {
+            width: auto;
+            margin-right: 5px;
+        }
+
+        input[type="color"] {
+            height: 45px;
+            padding: 3px;
+        }
+
+        input[type="range"] {
+            padding: 0;
+        }
+
+        .buttons {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            width: 150px;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+        }
+
+        input[type="submit"] {
+            background: #27ae60;
+        }
+
+        input[type="reset"] {
+            background: #e74c3c;
+        }
+
+        input[type="submit"]:hover {
+            background: #219150;
+        }
+
+        input[type="reset"]:hover {
+            background: #c0392b;
+        }
+
+        input[type="image"] {
+            width: 160px;
+            height: 50px;
+            object-fit: contain;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 700px) {
+            form {
+                grid-template-columns: 1fr;
+            }
+
+            .full-width,
+            .buttons {
+                grid-column: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Patient Registration Form</h1>
+
+    <form action="#" method="post" enctype="multipart/form-data">
+
+        <!-- Hidden Patient ID -->
+        <input type="hidden" name="patient_id" value="PAT2026001">
+
+        <!-- Patient Name -->
+        <div class="form-group">
+            <label for="name">Patient Name</label>
+            <input type="text" id="name" name="name"
+                   placeholder="Enter patient name" required>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email"
+                   placeholder="patient@example.com" required>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password"
+                   placeholder="Enter password" required>
+        </div>
+
+        <!-- Contact -->
+        <div class="form-group">
+            <label for="phone">Contact Number</label>
+            <input type="tel" id="phone" name="phone"
+                   placeholder="+91 9876543210"
+                   pattern="[0-9+\-\s]{10,15}" required>
+        </div>
+
+        <!-- Age -->
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age"
+                   min="1" max="120" placeholder="Enter age">
+        </div>
+
+        <!-- DOB -->
+        <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob">
+        </div>
+
+        <!-- Appointment Time -->
+        <div class="form-group">
+            <label for="appointment-time">Appointment Time</label>
+            <input type="time" id="appointment-time"
+                   name="appointment_time">
+        </div>
+
+        <!-- Appointment Date & Time -->
+        <div class="form-group">
+            <label for="appointment-datetime">
+                Appointment Date & Time
+            </label>
+            <input type="datetime-local"
+                   id="appointment-datetime"
+                   name="appointment_datetime">
+        </div>
+
+        <!-- Website -->
+        <div class="form-group">
+            <label for="website">Personal Website / Reference</label>
+            <input type="url" id="website" name="website"
+                   placeholder="https://example.com">
+        </div>
+
+        <!-- Search Doctor -->
+        <div class="form-group">
+            <label for="doctor">Search Doctor</label>
+            <input type="search" id="doctor" name="doctor"
+                   placeholder="Search doctor">
+        </div>
+
+        <!-- Color -->
+        <div class="form-group">
+            <label for="color">Favorite Consultation Color Theme</label>
+            <input type="color" id="color" name="color" value="#3498db">
+        </div>
+
+        <!-- File Upload -->
+        <div class="form-group">
+            <label for="record">Medical Record Upload</label>
+            <input type="file" id="record" name="record"
+                   accept=".pdf,.jpg,.jpeg,.png">
+        </div>
+
+        <!-- Pain Level -->
+        <div class="form-group">
+            <label for="pain">Pain Level (0–10)</label>
+            <input type="range" id="pain" name="pain"
+                   min="0" max="10" value="5">
+        </div>
+
+        <!-- Gender -->
+        <div class="form-group">
+            <label>Gender</label>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="gender" value="male">
+                    Male
+                </label>
+
+                <label>
+                    <input type="radio" name="gender" value="female">
+                    Female
+                </label>
+
+                <label>
+                    <input type="radio" name="gender" value="other">
+                    Other
+                </label>
+            </div>
+        </div>
+
+        <!-- Allergies -->
+        <div class="form-group full-width">
+            <label>Known Allergies</label>
+
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" name="allergy"
+                           value="dust">
+                    Dust
+                </label>
+
+                <label>
+                    <input type="checkbox" name="allergy"
+                           value="food">
+                    Food
+                </label>
+
+                <label>
+                    <input type="checkbox" name="allergy"
+                           value="medicine">
+                    Medicine
+                </label>
+
+                <label>
+                    <input type="checkbox" name="allergy"
+                           value="pollen">
+                    Pollen
+                </label>
+
+                <label>
+                    <input type="checkbox" name="allergy"
+                           value="none">
+                    None
+                </label>
+            </div>
+        </div>
+
+        <!-- Blood Group -->
+        <div class="form-group">
+            <label for="blood">Blood Group</label>
+
+            <select id="blood" name="blood">
+                <option value="">-- Select Blood Group --</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select>
+        </div>
+
+        <!-- Address -->
+        <div class="form-group full-width">
+            <label for="address">Address</label>
+
+            <textarea id="address" name="address"
+                      placeholder="Enter complete address"></textarea>
+        </div>
+
+        <!-- Image Button -->
+        <div class="form-group full-width">
+            <input type="image" src="images/payment.png" alt="Pay Now" width="160" height="50">
+        </div>
+
+        <!-- Submit / Reset -->
+        <div class="buttons">
+            <input type="submit" value="Register Patient">
+            <input type="reset" value="Reset Form">
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>

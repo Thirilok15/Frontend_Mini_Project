@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Search</title>
+    <meta charset="utf-8">
+</head>
+<body style = "margin-left : 230px ; margin-top : 20px">
+
+    <h2>Student Search</h2>
+
+    <input type="text" id="searchBox" placeholder="Enter student name">
+
+    <p id="message"></p>
+
+    <script>
+        const searchBox = document.getElementById("searchBox");
+        const message = document.getElementById("message");
+
+        searchBox.addEventListener("keydown", function(event) {
+
+            if (event.key === "Enter") {
+                message.textContent = "Searching for student…";
+            }
+            else if (event.key === "Escape") {
+                searchBox.value = "";
+                message.textContent = "";
+            }
+            else {
+                message.textContent = "Key pressed: " + event.key;
+            }
+
+        });
+    </script>
+
+</body>
+</html>

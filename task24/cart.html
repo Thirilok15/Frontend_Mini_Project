@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cart Summary</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f6fa;
+            margin: 0;
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .cart {
+            width: 600px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px #ccc;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #3498db;
+            color: white;
+        }
+
+        td, th {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 15px 5px;
+            border: none;
+            border-radius: 5px;
+            background: #27ae60;
+            color: white;
+            cursor: pointer;
+        }
+
+        .cancel {
+            background: #e74c3c;
+        }
+
+        a {
+            text-decoration: none;
+            background: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="cart">
+
+    <h2>Shopping Cart Summary</h2>
+
+    <table>
+        <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+
+        <tr>
+            <td>Wireless Headphones</td>
+            <td>2</td>
+            <td>₹1500</td>
+            <td>₹3000</td>
+        </tr>
+
+        <tr>
+            <td colspan="3"><b>Total Amount</b></td>
+            <td><b>₹3000</b></td>
+        </tr>
+    </table>
+
+    <br>
+
+    <a href="payment.html">← Back</a>
+
+    <button type="button">Place Order</button>
+    <button type="button" class="cancel">Cancel</button>
+
+</div>
+
+</body>
+</html>
